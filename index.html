@@ -61,10 +61,10 @@ PuppetLabs&#8217; MCollective.</p>
 
 <dl class="class">
 <dt id="mcollective.Message">
-<em class="property">class </em><tt class="descclassname">mcollective.</tt><tt class="descname">Message</tt><big>(</big><em>body</em>, <em>stomp_client</em>, <em>prefix='mcollective'</em>, <em>target='rpcutil'</em><big>)</big><a class="reference internal" href="_modules/mcollective.html#Message"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mcollective.Message" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">mcollective.</tt><tt class="descname">Message</tt><big>(</big><em>body</em>, <em>stomp_client</em>, <em>filter_=None</em>, <em>prefix='mcollective'</em>, <em>target='rpcutil'</em><big>)</big><a class="reference internal" href="_modules/mcollective.html#Message"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mcollective.Message" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="method">
 <dt id="mcollective.Message.__init__">
-<tt class="descname">__init__</tt><big>(</big><em>body</em>, <em>stomp_client</em>, <em>prefix='mcollective'</em>, <em>target='rpcutil'</em><big>)</big><a class="reference internal" href="_modules/mcollective.html#Message.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mcollective.Message.__init__" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">__init__</tt><big>(</big><em>body</em>, <em>stomp_client</em>, <em>filter_=None</em>, <em>prefix='mcollective'</em>, <em>target='rpcutil'</em><big>)</big><a class="reference internal" href="_modules/mcollective.html#Message.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#mcollective.Message.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a new message.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -153,6 +153,62 @@ in the replies from agents.</p>
 </tr>
 <tr class="field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list of STOMP messages which match this object&#8217;s <cite>:requestid</cite></p>
 </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="mcollective.Filter">
+<em class="property">class </em><tt class="descclassname">mcollective.</tt><tt class="descname">Filter</tt><big>(</big><em>cf_class=''</em>, <em>agent=''</em>, <em>identity=''</em><big>)</big><a class="headerlink" href="#mcollective.Filter" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="mcollective.Filter.__init__">
+<tt class="descname">__init__</tt><big>(</big><em>cf_class=''</em>, <em>agent=''</em>, <em>identity=''</em><big>)</big><a class="headerlink" href="#mcollective.Filter.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filter which nodes respond to a message</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>cf_class</strong> &#8211; Match classes applied by puppet etc</li>
+<li><strong>agent</strong> &#8211; Match the list of agents</li>
+<li><strong>identity</strong> &#8211; Match the identity configured in the configuration file</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mcollective.Filter.add_fact">
+<tt class="descname">add_fact</tt><big>(</big><em>name</em>, <em>value</em><big>)</big><a class="headerlink" href="#mcollective.Filter.add_fact" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a fact to the collection of filters</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> &#8211; Name of the fact</li>
+<li><strong>value</strong> &#8211; Value to match</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="mcollective.Filter.dump">
+<tt class="descname">dump</tt><big>(</big><big>)</big><a class="headerlink" href="#mcollective.Filter.dump" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dump this filter into a dictionary</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">Dictionary of filter parameters</td>
 </tr>
 </tbody>
 </table>
